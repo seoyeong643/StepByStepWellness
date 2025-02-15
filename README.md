@@ -8,8 +8,8 @@ Seoyeong (Maia) Oh - seoyeong@asu.edu <br>
 Karan Chauhan - kchauha5@asu.edu <br>
 Asmita Jalote - ajalote@asu.edu <br>
 Dhanya Jakkula - djakkula@asu.edu <br>
-rina kawamura - rkawamu1@asu.edu <br>
-munghoon cho - mcho36@asu.edu <br>
+Rina Kawamura - rkawamu1@asu.edu <br>
+Munghoon Cho - mcho36@asu.edu <br>
 Asiya Aiye - aaiye@asu.edu <br>
 
 ## Features
