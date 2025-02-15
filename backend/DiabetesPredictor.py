@@ -59,7 +59,7 @@ def predict_diabetes():
         # Make Prediction
         prediction = model.predict(input_df)[0]
         result = (
-            "Our results indicate a high likelihood of diabetes. This is not a medical diagnosis, but it suggests further evaluation. Consider consulting a healthcare professional for confirmation."
+            "Your results indicate a high likelihood of diabetes. This is not a medical diagnosis, but it suggests further evaluation. Consider consulting a healthcare professional for confirmation."
             if prediction == 1
             else
             "Your results suggest a low likelihood of diabetes. This does not guarantee you are free from risk. Maintaining a balanced diet, regular exercise, and health checkups is still recommended."
