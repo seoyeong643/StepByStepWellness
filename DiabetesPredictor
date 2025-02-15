@@ -1,0 +1,39 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+import ipywidgets as widgets
+
+
+df = pd.read_csv('diabetes.csv')
+X = df[['Glucose', 'BloodPressure', 'BMI', 'Age']]
+y = df['Outcome']
+X_train, X_test, y_train, y_test, = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+glucose = widgets.FloatText(description="Glucose:")
+blood_pressure = widgets.FloatText(description="Blood Pressure:")
+bmi = widgets.FloatText(description="BMI:")
+age = widgets.IntText(description="Age:")
+
+display(glucose, blood_pressure, bmi, age)
+
+def predict_diabetes():
+  input_data = [[glucose.value, blood_pressure.value, bmi.value, age.value]]
+  input_df = pd.DataFrame(input_data, columns=['Glucose', 'BloodPressure', 'BMI', 'Age'])
+  prediction = model.predict(input_df)[0]
+  if prediction == 1:
+    print("Prediction: Diabetic")
+  else:
+    print("Prediction: Non-Diabetic")
+  if glucose.value <100:
+    print("You glucose levels are normal and you are doing well. Keep up your healthy eating habits and continue excerising regularly. What ever you are doing seems to be working, good job!")
+  elif glucose.value >= 100 and glucose.value <= 140:
+    print("Your glucose levels are higher than they should be but luckily there are lots of small changes you can make to fix this. Make sure to have a balanced diet and excersise regularly. It is also important to stay hydrated and take active steps to manage your stress and try to limit your alcohol consumption.")
+  else: 
+    print("Your glucose levels are very high and even if they are not causing issues now, they will impact you in the future. It's very important that you reconsider your current diet entirely and create a schedule for excersise. Along with  this, make sure to regulate your other bodily needs such as sleep and stress management to see improvement as well. It is also highly encouraged to limit alcohol intake.")
+
+predict_button = widgets.Button(description="Predict")
+predict_button.on_click(lambda b: predict_diabetes())
+display(predict_button)
