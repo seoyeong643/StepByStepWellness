@@ -1,13 +1,13 @@
 # Hackathon
 
 ## Team member : 
-Seoyeong (Maia) Oh - seoyeong@asu.edu
-Karan Chauhan - kchauha5@asu.edu 
-Asmita Jalote - ajalote@asu.edu 
-Dhanya Jakkula - djakkula@asu.edu 
-rina kawamura - rkawamu1@asu.edu 
-munghoon cho - mcho36@asu.edu 
-Asiya Aiye - aaiye@asu.edu
+Seoyeong (Maia) Oh - seoyeong@asu.edu <br>
+Karan Chauhan - kchauha5@asu.edu <br>
+Asmita Jalote - ajalote@asu.edu <br>
+Dhanya Jakkula - djakkula@asu.edu <br>
+rina kawamura - rkawamu1@asu.edu <br>
+munghoon cho - mcho36@asu.edu <br>
+Asiya Aiye - aaiye@asu.edu <br>
 
 
 ## Project Overview
