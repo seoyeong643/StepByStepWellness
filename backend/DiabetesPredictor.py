@@ -1,10 +1,10 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 # Initialize Flask App
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../frontend")
 
 # Load Dataset
 df = pd.read_csv('diabetes.csv')
@@ -42,6 +42,10 @@ def get_bp_advice(blood_pressure):
         return "\n- You have normal blood pressure. You are doing great! Keep on going! Keep maintainng a healthy low sodium diet and getting a regular exercise"
     else:
         return "\n- You have low blood pressure. Ways to combat low blood pressure is to stay hydrated, eat a healthy diet with high sodium, eat frequent meals, avoid prolonged sitting and standing"
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 # API Route for Predictions
 @app.route('/predict', methods=['POST'])

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    
+    <label for="glucose">Glucose:</label>
+    <input type="number" id="glucose"><br>
+    
+    <label for="bloodPressure">Blood Pressure:</label>
+    <input type="number" id="bloodPressure"><br>
+    
+    <label for="bmi">BMI:</label>
+    <input type="number" id="bmi"><br>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age"><br>
+
+    <button onclick="predict()">Predict</button>
+    
+    <h2>Result:</h2>
+    <p id="prediction"></p>
+    <p id="advice"></p>
+
+    <script>
+        async function predict() {
+            const data = {
+                Glucose: document.getElementById("glucose").value,
+                BloodPressure: document.getElementById("bloodPressure").value,
+                BMI: document.getElementById("bmi").value,
+                Age: document.getElementById("age").value
+            };
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            document.getElementById("prediction").innerText = result.prediction;
+            document.getElementById("advice").innerText = result.advice;
+        }
+    </script>
+</body>
+</html>
