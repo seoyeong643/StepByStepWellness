@@ -38,8 +38,10 @@ def get_bmi_advice(bmi_value):
 def get_bp_advice(blood_pressure):
     if blood_pressure >= 80:
         return "\n- You have high blood pressure. Ways to combat high blood pressure is to eat a healthy diet low in sodium, maintaining a good BMI, getting regular physical activity, limiting alcohol intake, managing stress, and getting enough sleep"
-    else:
+    elif 60 < blood_pressure < 80:
         return "\n- You have normal blood pressure. You are doing great! Keep on going! Keep maintainng a healthy low sodium diet and getting a regular exercise"
+    else:
+        return "\n- You have low blood pressure. Ways to combat low blood pressure is to stay hydrated, eat a healthy diet with high sodium, eat frequent meals, avoid prolonged sitting and standing"
 
 # API Route for Predictions
 @app.route('/predict', methods=['POST'])
