@@ -20,6 +20,9 @@ Asiya Aiye - aaiye@asu.edu <br>
 ## Model Training
 We used **Logistic Regression** trained on the Pima Indians Diabetes dataset.
 The model was trained with **80% training, 20% testing** split.
+
+## Output
+![image](https://github.com/user-attachments/assets/8b1dd4d0-bdba-4216-93a6-0d445cb5d564)
 ![image](https://github.com/user-attachments/assets/4e0a42bc-dd71-46f0-8d64-ece06f6e10d8)
 
 ## References
