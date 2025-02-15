@@ -21,11 +21,19 @@ model.fit(X_train, y_train)
 # Function to generate glucose advice
 def get_glucose_advice(glucose):
     if glucose < 100:
-        return "Your glucose levels are normal. Keep up your healthy habits!"
+        return "- Your glucose levels are normal. Keep up your healthy habits!"
     elif 100 <= glucose <= 140:
-        return "Your glucose levels are slightly high. Consider a balanced diet and regular exercise."
+        return "- Your glucose levels are slightly high. Consider a balanced diet and regular exercise."
     else:
-        return "Your glucose levels are very high. Please reconsider your diet and exercise routine."
+        return "- Your glucose levels are very high. Please reconsider your diet and exercise routine."
+
+def get_bmi_advice(bmi_value):
+    if bmi_value < 18.5:
+        return "\n- You are underweight. Consider incorporating a balanced diet with nutrient-rich foods to maintain a healthy weight. Stay active and take care of your well-being!"
+    elif 18.5 <= bmi_value < 24.9:
+        return "\n- Great job! You have a healthy weight. Keep up a balanced diet and regular exercise to maintain your well-being!"
+    else:
+        return "\n- You are in the overweight range. Focusing on a balanced diet and regular physical activity can help you achieve a healthier weight. Small, consistent changes can make a big difference!"
 
 # API Route for Predictions
 @app.route('/predict', methods=['POST'])
@@ -47,7 +55,7 @@ def predict_diabetes():
         result = "Diabetic" if prediction == 1 else "Non-Diabetic"
 
         # Get Advice
-        advice = get_glucose_advice(glucose)
+        advice = get_glucose_advice(glucose) + get_bmi_advice(bmi)
 
         return jsonify({'prediction': result, 'advice': advice})
     
