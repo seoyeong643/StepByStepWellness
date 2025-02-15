@@ -35,6 +35,12 @@ def get_bmi_advice(bmi_value):
     else:
         return "\n- You are in the overweight range. Focusing on a balanced diet and regular physical activity can help you achieve a healthier weight. Small, consistent changes can make a big difference!"
 
+def get_bp_advice(blood_pressure):
+    if blood_pressure >= 80:
+        return "\n- You have high blood pressure. Ways to combat high blood pressure is to eat a healthy diet low in sodium, maintaining a good BMI, getting regular physical activity, limiting alcohol intake, managing stress, and getting enough sleep"
+    else:
+        return "\n- You have normal blood pressure. You are doing great! Keep on going! Keep maintainng a healthy low sodium diet and getting a regular exercise"
+
 # API Route for Predictions
 @app.route('/predict', methods=['POST'])
 def predict_diabetes():
@@ -55,7 +61,7 @@ def predict_diabetes():
         result = "Diabetic" if prediction == 1 else "Non-Diabetic"
 
         # Get Advice
-        advice = get_glucose_advice(glucose) + get_bmi_advice(bmi)
+        advice = get_glucose_advice(glucose) + get_bmi_advice(bmi) + get_bp_advice(blood_pressure)
 
         return jsonify({'prediction': result, 'advice': advice})
     
